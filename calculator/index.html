@@ -1,0 +1,273 @@
+<html>
+
+<head>
+ 
+  <title>PROJECT MONZKIE CALCULATOR</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+
+#div1{ box-shadow: 2px 2px 4px black; posistion: relative; }
+#div2{  posistion: fixed; margin-bottom:20px; margin-left:33px;}
+#doble{border-style:outset; width:120px; height:60px; margin-top:0px; border-radius:2px; margin-left:0px; background-color:rgb(234,182,0);border:2px solid rgb(163,163,163);   }
+#points1{margin-left:18px; width:120px; height:60px; }
+button  { width:60px; height:60px; box-shadow:1px 1px 1px black;float:left;}
+#button{ width:25%; height:50px; background-color:red; border:1px solid black; border-radius:5px; box-shadow:2px 2px 5px black;}
+#div3{margin-left:28px;}
+numr{text-decoration:none;}
+#cover{transition:0.5s; margin-top: -370px; width:25%;height:370px;background-image: url("./lether.jpg");border:1px solid black ;border-radius:10px;float :left; position:absolute; }
+#on{margin-left:140px; margin-top:-80px; position:absolute; width: 80px; height: 40px;}
+#of{margin-left:210px; margin-top:-80px; position:absolute; width: 80px; height: 40px;}
+
+#calculator{color:rgb(233,206,20); font-family: sans-serif; text-align: center;margin-top: 40px;backface-visibility: hidden;}
+</style>
+
+</head>
+
+<script>
+
+
+
+
+
+
+
+var z = 0;
+
+var v = 10;
+
+var firstnumber= "";
+
+var second="";
+
+var operator; 
+
+var reservnumber = 0;
+ 
+var reservnumber = 0;
+
+var result = "";
+
+var lock = false;
+
+var delt =0;
+
+    function number(num ) { 
+	
+	         if(lock == false) return; 
+			 
+          	 firstnumber += num; second +=  num; result += num; z++;
+			
+			 
+           var   audi = document.getElementById("myaudio"); 
+
+             audi.play(); 
+
+			
+			if( result > 1000000000){ result = "sintax error"; 	var   blow = document.getElementById("mybomb"); 
+			
+			
+             blow.play(); 		m.style.fontSize = "20px"; z=1;  }
+			
+			else{ result = result;}
+
+			m = document.getElementById(2); m.innerHTML = result;       v = parseFloat(result); 
+
+   }
+
+	function selected(el,mat){ 
+		if(lock == false ) return;
+		
+	
+	
+  var   audi = document.getElementById("myaudio"); 
+  audi.play(); 
+ 			
+		
+		
+		
+		operator = el;  reservnumber = parseFloat(firstnumber);
+		second ="";  result =""; document.getElementById(2).innerHTML = mat; z =1; reservnumber = v; 
+		m.style.fontSize = "30px";	
+	}
+
+function answer(){ if(lock == false ) return;
+
+ z=1;  result = "";  secondnumber = parseFloat(second);  v = operator( reservnumber , secondnumber  ); 
+ 
+
+  var   blow = document.getElementById("mybomb"); 
+  blow.play(); 
+ 
+ 
+ document.getElementById(2).innerHTML = v; }
+
+function add(a,b){ b = b || 0; return a + b; }
+
+function time(a,b){return a * b;}
+
+function devide(a,b){return a / b;}
+
+function subtrac(a,b){return a - b;}
+
+function percentage(a,b){return a / 100 * b}
+
+function deny(){  if( z < 0 ){  z = 0;   var   audi = document.getElementById("myaudio");  audi.play(); } 
+
+ z--; result  = result.substring(0,z);
+
+if(!result && delt == 1){ document.getElementById(2).innerHTML = 0;}else{
+
+m.innerHTML = result;}
+  
+v = parseFloat(result);
+
+m.style.fontSize = "30px";
+}
+
+
+
+
+
+
+
+
+function on(){
+
+  var   audi = document.getElementById("myaudio"); 
+  audi.play(); 
+ 
+result ="";	
+
+delt =1;//for delete equal zero only;
+
+lock = true;
+ 
+  
+
+
+document.getElementById(2).innerHTML = 0;
+}
+
+
+
+// this is for open and off function
+
+
+function off(){
+
+
+ var   audi = document.getElementById("myaudio"); 
+  audi.play(); 
+ 
+
+
+firstnumber= "";
+second="";
+reservnumber = 0;
+result = "";
+v =0;
+delt=0;
+z =1;
+lock = false; 
+document.getElementById(2).innerHTML = "";
+document.getElementById("cover").style.WebkitTransform = "rotateY(-180deg)";
+document.getElementById("cover").style.marginLeft ="0px";
+
+document.getElementById('calculator').style.WebkitTransform = "rotateY(-180deg)";
+document.getElementById('calculator').style.backfaceVisibility="show";
+
+
+ 
+
+
+}
+
+
+</script>
+
+ 
+ </head>
+
+
+
+<body style="background-color:powderblue;">
+
+
+
+
+<div  id = 'div1'class="col-xm-12" style = ' position : relative; width:330px;;height:650px;background-color:rgb(0,79,113);border:1px solid black ;border-radius:10px;margin-left:10px;margin-top:40px;margin-bottom:40px;'>
+<p style=" color:white; font-family:sans-serif; margin-left:20px;margin-top:20px;">PROJECT MONZKIE  </p>
+<div id='div2'style='width:260px;height:80px;border: 5px  ;
+background-color:rgb(134,134,134);margin-bottom:100px;margin-top:60px;border-style:inset;'>
+<h1 id = 2 style='text-align:right;padding:0px;font-family:sans-serif;font-size:30px;
+overflow:hidden;margin-right:10px;margin-top:10px;margin-bottom:40px;transition:0.5s;'>  </h1>
+</div>
+
+
+<button type='button' onclick = "on()" id= 'on'> 0n  </button>
+<button type='button' onclick = "off()" id= 'of'> off </button>
+
+
+ <div id='div3' class="col-xm-12"  >
+
+
+
+<button type='button' onclick='selected(add,"+")'style='margin-left:18px;'> +</button>
+<button type='button' onclick='number(1,)' id= 'num1'> 1</button>
+<button type='button' onclick='number(2)' id='num2'> 2</button>
+<button type='button' onclick='number(3)'id='num3'> 3</button> <br/>
+<button type='button' onclick='selected(time,"*")'style='margin-left:18px;'> * </button>
+<button type='button' onclick='number(4)' id= 'num4'> 4</button>
+<button type='button' onclick='number(5)'  id='num5'> 5</button>
+<button type='button' onclick='number(6)' id='num6'> 6</button> </br>
+<button type='button' onclick='selected(devide,"/")'style='margin-left:18px;'> /</button>
+<button type='button' onclick='number(7)' id= 'num7'> 7</button>
+<button type='button' onclick='number(8)'  id='num8'> 8</button>
+<button type='button' onclick='number(9)' id='num9'> 9</button> </br>
+<button type='button' onclick='selected(subtrac,"-")'style='margin-left:18px;'> - </button>
+<button type='button' onclick='number(0)'id='num0'> 0</button>
+<button type='button'onclick='selected(percentage,"%")'> %</button>
+<button type='button' onclick='number(".")'> .</button></br>
+<button type='button' onclick='deny()' id='points1'> delete</button>
+<button type='button' onclick='answer()' id='doble'> = </button>
+
+
+
+
+</div>
+
+</div>
+
+
+
+ 
+
+<audio id="myaudio" > 
+
+ <source src="push.mp3" type="audio/ogg">
+ <source src="push.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="mybomb" > 
+
+ <source src="bomb.mp3" type="audio/ogg">
+ <source src="bomb.mp3" type="audio/mpeg">
+</audio>
+ 
+
+ 
+
+</body>
+
+
+
+
+
+
+
+</html>
